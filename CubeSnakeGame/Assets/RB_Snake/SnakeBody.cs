@@ -18,6 +18,25 @@ namespace RBSnake
             SnakeControl = FindObjectOfType<Control>();
         }
 
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.GetComponent<Rat>() != null)
+            {
+                SpawnTail();
+                Destroy(other.gameObject);
+            }
+        }
+
+        void SpawnTail()
+        {
+            GameObject obj = Instantiate(Resources.Load<GameObject>("SnakeBody")) as GameObject;
+            obj.transform.position = SnakeBodyManager.Instance.Bodies[0].transform.position;
+
+            SnakeBodyManager.Instance.Bodies.Insert(0, obj.GetComponent<SnakeBody>());
+            SnakeBodyManager.Instance.Bodies[0].Front = SnakeBodyManager.Instance.Bodies[1];
+            SnakeBodyManager.Instance.Bodies[1].Back = SnakeBodyManager.Instance.Bodies[0];
+        }
+
         public void RegisterBody()
         {
             if (!SnakeBodyManager.Instance.Bodies.Contains(this))
