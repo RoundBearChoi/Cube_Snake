@@ -51,50 +51,55 @@ namespace RBSnake
             }
             else
             {
-                MoveDir(SnakeControl.KeyDirection);
+                if (SnakeControl.KeyPresses.Count != 0)
+                {
+                    MoveDir(SnakeControl.KeyPresses[0]);
+                }
+                else
+                {
+                    this.transform.position += this.transform.forward;
+                }
             }
         }
 
         public void MoveDir(KeyCode key)
         {
-            if (IsReverse(key))
+            if (!IsReverse(key))
+            {
+                if (key == KeyCode.LeftArrow)
+                {
+                    this.transform.position -= Vector3.right;
+                    this.transform.forward = -Vector3.right;
+                    SnakeControl.KeyDirection = KeyCode.None;
+                }
+
+                if (key == KeyCode.RightArrow)
+                {
+                    this.transform.position += Vector3.right;
+                    this.transform.forward = Vector3.right;
+                    SnakeControl.KeyDirection = KeyCode.None;
+                }
+
+                if (key == KeyCode.UpArrow)
+                {
+                    this.transform.position += Vector3.forward;
+                    this.transform.forward = Vector3.forward;
+                    SnakeControl.KeyDirection = KeyCode.None;
+                }
+
+                if (key == KeyCode.DownArrow)
+                {
+                    this.transform.position -= Vector3.forward;
+                    this.transform.forward = -Vector3.forward;
+                    SnakeControl.KeyDirection = KeyCode.None;
+                }
+            }
+            else
             {
                 this.transform.position += this.transform.forward;
-                return;
             }
 
-            if (key == KeyCode.None)
-            {
-                this.transform.position += this.transform.forward;
-            }
-
-            if (key == KeyCode.LeftArrow)
-            {
-                this.transform.position -= Vector3.right;
-                this.transform.forward = -Vector3.right;
-                SnakeControl.KeyDirection = KeyCode.None;
-            }
-
-            if (key == KeyCode.RightArrow)
-            {
-                this.transform.position += Vector3.right;
-                this.transform.forward = Vector3.right;
-                SnakeControl.KeyDirection = KeyCode.None;
-            }
-
-            if (key == KeyCode.UpArrow)
-            {
-                this.transform.position += Vector3.forward;
-                this.transform.forward = Vector3.forward;
-                SnakeControl.KeyDirection = KeyCode.None;
-            }
-
-            if (key == KeyCode.DownArrow)
-            {
-                this.transform.position -= Vector3.forward;
-                this.transform.forward = -Vector3.forward;
-                SnakeControl.KeyDirection = KeyCode.None;
-            }
+            SnakeControl.KeyPresses.RemoveAt(0);
         }
 
         bool IsReverse(KeyCode key)

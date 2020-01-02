@@ -8,7 +8,20 @@ namespace RBSnake
     {
         public List<SnakeBody> Bodies = new List<SnakeBody>();
         public float BigUpdateTime;
-        public float BigUpdateInterval = 0.25f;
+        public float BigUpdateInterval = 0.15f;
+
+        private SnakeBody snakehead = null;
+        public SnakeBody SnakeHead
+        {
+            get
+            {
+                if (snakehead == null)
+                {
+                    snakehead = GetSnakeHead();
+                }
+                return snakehead;
+            }
+        }
 
         public void InitSnake()
         {
@@ -22,6 +35,19 @@ namespace RBSnake
                     break;
                 }
             }
+        }
+
+        SnakeBody GetSnakeHead()
+        {
+            foreach(SnakeBody body in Bodies)
+            {
+                if (body.Front == null)
+                {
+                    return body;
+                }
+            }
+
+            return null;
         }
 
         private void Update()

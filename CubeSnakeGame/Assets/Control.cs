@@ -7,27 +7,28 @@ namespace RBSnake
     public class Control : MonoBehaviour
     {
         public KeyCode KeyDirection;
+        public List<KeyCode> KeyPresses = new List<KeyCode>();
 
         void Update()
         {
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
-                KeyDirection = KeyCode.LeftArrow;
+                KeyPresses.Add(KeyCode.LeftArrow);
             }
 
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                KeyDirection = KeyCode.RightArrow;
+                KeyPresses.Add(KeyCode.RightArrow);
             }
 
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
-                KeyDirection = KeyCode.UpArrow;
+                KeyPresses.Add(KeyCode.UpArrow);
             }
 
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                KeyDirection = KeyCode.DownArrow;
+                KeyPresses.Add(KeyCode.DownArrow);
             }
         }
     }
