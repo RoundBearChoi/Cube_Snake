@@ -57,6 +57,12 @@ namespace RBSnake
 
         public void MoveDir(KeyCode key)
         {
+            if (IsReverse(key))
+            {
+                this.transform.position += this.transform.forward;
+                return;
+            }
+
             if (key == KeyCode.None)
             {
                 this.transform.position += this.transform.forward;
@@ -89,6 +95,43 @@ namespace RBSnake
                 this.transform.forward = -Vector3.forward;
                 SnakeControl.KeyDirection = KeyCode.None;
             }
+        }
+
+        bool IsReverse(KeyCode key)
+        {
+            if (key == KeyCode.LeftArrow)
+            {
+                if (this.transform.forward == Vector3.right)
+                {
+                    return true;
+                }
+            }
+
+            if (key == KeyCode.RightArrow)
+            {
+                if (this.transform.forward == -Vector3.right)
+                {
+                    return true;
+                }
+            }
+
+            if (key == KeyCode.DownArrow)
+            {
+                if (this.transform.forward == Vector3.forward)
+                {
+                    return true;
+                }
+            }
+
+            if (key == KeyCode.UpArrow)
+            {
+                if (this.transform.forward == -Vector3.forward)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }
