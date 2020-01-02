@@ -46,6 +46,7 @@ namespace RBSnake
                 }
                 else
                 {
+                    //move body (just follow front)
                     this.transform.position = Front.transform.position;
                 }
             }
@@ -53,10 +54,12 @@ namespace RBSnake
             {
                 if (SnakeControl.KeyPresses.Count != 0)
                 {
+                    //move head (key press)
                     MoveDir(SnakeControl.KeyPresses[0]);
                 }
                 else
                 {
+                    //continue moving head (no key press)
                     this.transform.position += this.transform.forward;
                 }
             }
@@ -70,28 +73,24 @@ namespace RBSnake
                 {
                     this.transform.position -= Vector3.right;
                     this.transform.forward = -Vector3.right;
-                    SnakeControl.KeyDirection = KeyCode.None;
                 }
 
                 if (key == KeyCode.RightArrow)
                 {
                     this.transform.position += Vector3.right;
                     this.transform.forward = Vector3.right;
-                    SnakeControl.KeyDirection = KeyCode.None;
                 }
 
                 if (key == KeyCode.UpArrow)
                 {
                     this.transform.position += Vector3.forward;
                     this.transform.forward = Vector3.forward;
-                    SnakeControl.KeyDirection = KeyCode.None;
                 }
 
                 if (key == KeyCode.DownArrow)
                 {
                     this.transform.position -= Vector3.forward;
                     this.transform.forward = -Vector3.forward;
-                    SnakeControl.KeyDirection = KeyCode.None;
                 }
             }
             else

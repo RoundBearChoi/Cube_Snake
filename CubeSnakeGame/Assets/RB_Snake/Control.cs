@@ -6,7 +6,6 @@ namespace RBSnake
 {
     public class Control : MonoBehaviour
     {
-        public KeyCode KeyDirection;
         public List<KeyCode> KeyPresses = new List<KeyCode>();
 
         void Update()

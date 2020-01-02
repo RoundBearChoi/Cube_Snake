@@ -10,19 +10,6 @@ namespace RBSnake
         public float BigUpdateTime;
         public float BigUpdateInterval = 0.15f;
 
-        private SnakeBody snakehead = null;
-        public SnakeBody SnakeHead
-        {
-            get
-            {
-                if (snakehead == null)
-                {
-                    snakehead = GetSnakeHead();
-                }
-                return snakehead;
-            }
-        }
-
         public void InitSnake()
         {
             SnakeBody[] arr = GameObject.FindObjectsOfType<SnakeBody>();
@@ -35,19 +22,6 @@ namespace RBSnake
                     break;
                 }
             }
-        }
-
-        SnakeBody GetSnakeHead()
-        {
-            foreach(SnakeBody body in Bodies)
-            {
-                if (body.Front == null)
-                {
-                    return body;
-                }
-            }
-
-            return null;
         }
 
         private void Update()
