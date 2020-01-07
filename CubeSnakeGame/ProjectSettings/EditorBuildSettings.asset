@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/LWRP_Sample_Scene.unity
-    guid: d1c3109bdb54ad54c8a2b2838528e640
+    path: Assets/RB_Snake/Scenes/SnakeTestScene.unity
+    guid: 1ceba4aa7a7809b46be771327e964a82
   m_configObjects: {}

@@ -9,13 +9,12 @@ namespace RBSnake
         [Header("Parts")]
         public SnakeBody Front;
         public SnakeBody Back;
-
-        [Header("Control")]
-        public Control SnakeControl;
+        
+        private Control control;
 
         private void Start()
         {
-            SnakeControl = FindObjectOfType<Control>();
+            control = FindObjectOfType<Control>();
         }
 
         private void OnTriggerEnter(Collider other)
@@ -24,6 +23,18 @@ namespace RBSnake
             {
                 SpawnTail();
                 Destroy(other.gameObject);
+            }
+                        
+            if (this == SnakeBodyManager.Instance.SNAKE_HEAD)
+            {
+                if (!SnakeBodyManager.Instance.FirstUpdate)
+                {
+                    SnakeBody collidedBody = other.gameObject.GetComponent<SnakeBody>();
+                    if (collidedBody != null)
+                    {
+                        SnakeBodyManager.Instance.IsDead = true;
+                    }
+                }
             }
         }
 
@@ -71,10 +82,10 @@ namespace RBSnake
             }
             else
             {
-                if (SnakeControl.KeyPresses.Count != 0)
+                if (control.KeyPresses.Count != 0)
                 {
                     //move head (key press)
-                    MoveDir(SnakeControl.KeyPresses[0]);
+                    MoveDir(control.KeyPresses[0]);
                 }
                 else
                 {
@@ -86,75 +97,31 @@ namespace RBSnake
 
         public void MoveDir(KeyCode key)
         {
-            if (!IsReverse(key))
-            {
-                if (key == KeyCode.LeftArrow)
-                {
-                    this.transform.position -= Vector3.right;
-                    this.transform.forward = -Vector3.right;
-                }
-
-                if (key == KeyCode.RightArrow)
-                {
-                    this.transform.position += Vector3.right;
-                    this.transform.forward = Vector3.right;
-                }
-
-                if (key == KeyCode.UpArrow)
-                {
-                    this.transform.position += Vector3.forward;
-                    this.transform.forward = Vector3.forward;
-                }
-
-                if (key == KeyCode.DownArrow)
-                {
-                    this.transform.position -= Vector3.forward;
-                    this.transform.forward = -Vector3.forward;
-                }
-            }
-            else
-            {
-                this.transform.position += this.transform.forward;
-            }
-
-            SnakeControl.KeyPresses.RemoveAt(0);
-        }
-
-        bool IsReverse(KeyCode key)
-        {
             if (key == KeyCode.LeftArrow)
             {
-                if (this.transform.forward == Vector3.right)
-                {
-                    return true;
-                }
+                this.transform.position -= Vector3.right;
+                this.transform.forward = -Vector3.right;
             }
 
             if (key == KeyCode.RightArrow)
             {
-                if (this.transform.forward == -Vector3.right)
-                {
-                    return true;
-                }
-            }
-
-            if (key == KeyCode.DownArrow)
-            {
-                if (this.transform.forward == Vector3.forward)
-                {
-                    return true;
-                }
+                this.transform.position += Vector3.right;
+                this.transform.forward = Vector3.right;
             }
 
             if (key == KeyCode.UpArrow)
             {
-                if (this.transform.forward == -Vector3.forward)
-                {
-                    return true;
-                }
+                this.transform.position += Vector3.forward;
+                this.transform.forward = Vector3.forward;
             }
 
-            return false;
+            if (key == KeyCode.DownArrow)
+            {
+                this.transform.position -= Vector3.forward;
+                this.transform.forward = -Vector3.forward;
+            }
+
+            control.KeyPresses.RemoveAt(0);
         }
     }
 }

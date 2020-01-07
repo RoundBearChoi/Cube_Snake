@@ -9,6 +9,30 @@ namespace RBSnake
         public List<SnakeBody> Bodies = new List<SnakeBody>();
         public float BigUpdateTime;
         public float BigUpdateInterval = 0.15f;
+        public bool FirstUpdate;
+        public bool IsDead;
+
+        private void Awake()
+        {
+            FirstUpdate = true;
+            IsDead = false;
+        }
+
+        public SnakeBody SNAKE_HEAD
+        {
+            get
+            {
+                foreach(SnakeBody s in Bodies)
+                {
+                    if (s.Front == null)
+                    {
+                        return s;
+                    }
+                }
+
+                return null;
+            }
+        }
 
         public void InitSnake()
         {
@@ -30,6 +54,7 @@ namespace RBSnake
 
             if (BigUpdateTime >= BigUpdateInterval)
             {
+                FirstUpdate = false;
                 UpdateBodies();
                 BigUpdateTime = 0f;
             }
@@ -37,9 +62,15 @@ namespace RBSnake
 
         public void UpdateBodies()
         {
-            for (int i = 0; i < Bodies.Count; i++)
+            if (!IsDead)
             {
-                Bodies[i].UpdateBody();
+                for (int i = 0; i < Bodies.Count; i++)
+                {
+                    Bodies[i].UpdateBody();
+                }
+
+                UIManager.Instance.ARROW_KEYS_UI.UpdateArrows();
+                UIManager.Instance.ARROW_KEYS_UI.UpdateLastArrow();
             }
         }
     }
