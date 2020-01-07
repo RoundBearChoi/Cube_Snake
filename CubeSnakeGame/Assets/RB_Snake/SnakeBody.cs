@@ -43,9 +43,13 @@ namespace RBSnake
             GameObject obj = Instantiate(Resources.Load<GameObject>("SnakeBody")) as GameObject;
             obj.transform.position = SnakeBodyManager.Instance.Bodies[0].transform.position;
 
-            SnakeBodyManager.Instance.Bodies.Insert(0, obj.GetComponent<SnakeBody>());
+            SnakeBody newBody = obj.GetComponent<SnakeBody>();
+
+            SnakeBodyManager.Instance.Bodies.Insert(0, newBody);
             SnakeBodyManager.Instance.Bodies[0].Front = SnakeBodyManager.Instance.Bodies[1];
             SnakeBodyManager.Instance.Bodies[1].Back = SnakeBodyManager.Instance.Bodies[0];
+
+            newBody.ScaleDown();
         }
 
         public void RegisterBody()
@@ -57,8 +61,14 @@ namespace RBSnake
                 if (Front != null)
                 {
                     Front.RegisterBody();
+                    ScaleDown();
                 }
             }
+        }
+
+        public void ScaleDown()
+        {
+            this.transform.localScale = Front.transform.localScale * 0.99f;
         }
 
         public void UpdateBody()
