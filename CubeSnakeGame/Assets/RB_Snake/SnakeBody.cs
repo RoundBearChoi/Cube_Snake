@@ -19,12 +19,14 @@ namespace RBSnake
 
         private void OnTriggerEnter(Collider other)
         {
+            // collision against food
             if (other.gameObject.GetComponent<Rat>() != null)
             {
                 SpawnTail();
                 Destroy(other.gameObject);
             }
-                        
+                    
+            // collision against self
             if (this == SnakeBodyManager.Instance.SNAKE_HEAD)
             {
                 if (!SnakeBodyManager.Instance.FirstUpdate)
@@ -58,6 +60,7 @@ namespace RBSnake
             {
                 SnakeBodyManager.Instance.Bodies.Add(this);
 
+                // recursive: repeat the same process until you reach the head 
                 if (Front != null)
                 {
                     Front.RegisterBody();
@@ -68,7 +71,10 @@ namespace RBSnake
 
         public void ScaleDown()
         {
-            this.transform.localScale = Front.transform.localScale * 0.99f;
+            if (this.transform.localScale.x >= 0.5f)
+            {
+                this.transform.localScale = Front.transform.localScale * 0.925f;
+            }
         }
 
         public void UpdateBody()
@@ -99,7 +105,7 @@ namespace RBSnake
                 }
                 else
                 {
-                    //continue moving head (no key press)
+                    //continue moving the head (no key press)
                     this.transform.position += this.transform.forward;
                 }
             }
