@@ -9,7 +9,7 @@ namespace RBSnake
         public List<KeyCode> KeyPresses = new List<KeyCode>();
         public KeyCode LastPress;
 
-        bool IsReverse(KeyCode key)
+        public bool IsReverse(KeyCode key)
         {
             if (LastPress == KeyCode.LeftArrow)
             {

@@ -83,20 +83,26 @@ namespace RBSnake
             {
                 TouchKey = KeyCode.UpArrow;
             }
-
-            SnakeController.LastPress = KeyCode.None;
-
+            
             if (SnakeController.KeyPresses.Count > 1)
             {
                 SnakeController.KeyPresses.Clear();
             }
 
-            if (SnakeController.KeyPresses.Count == 0)
+            if (!SnakeController.IsReverse(TouchKey))
             {
-                SnakeController.KeyPresses.Add(TouchKey);
-            }
+                if (SnakeController.KeyPresses.Count == 0)
+                {
+                    SnakeController.KeyPresses.Add(TouchKey);
+                }
 
-            SnakeController.KeyPresses[0] = TouchKey;
+                SnakeController.KeyPresses[0] = TouchKey;
+                SnakeController.LastPress = TouchKey;
+            }
+            else
+            {
+                SnakeController.KeyPresses.Clear();
+            }
         }
 
         float Get360Degree(Vector2 vec)
