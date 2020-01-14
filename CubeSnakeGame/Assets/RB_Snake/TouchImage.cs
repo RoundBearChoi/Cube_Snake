@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace RBSnake
 {
     public class TouchImage : MonoBehaviour
     {
+        [SerializeField]
+        private RectTransform CenterRect;
+
         private TouchControl touchControl;
         public RuntimeAnimatorController TouchAnimator;
         public Animator animator;
@@ -17,7 +21,7 @@ namespace RBSnake
 
         void Update()
         {
-            this.transform.position = touchControl.TouchPos;
+            animator.gameObject.transform.position = touchControl.TouchPos;
         }
 
         public void ProcTouchAnimation()
@@ -35,6 +39,11 @@ namespace RBSnake
             yield return new WaitForEndOfFrame();
             animator.runtimeAnimatorController = null;
             animator.runtimeAnimatorController = TouchAnimator;
+        }
+
+        public Vector2 GetCenterPos()
+        {
+            return CenterRect.position;
         }
     }
 }
