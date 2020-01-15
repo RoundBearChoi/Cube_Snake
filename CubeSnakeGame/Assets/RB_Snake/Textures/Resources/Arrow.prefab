@@ -87,7 +87,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d65598da542d1264bbae98fec44bfa1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolObjectType: 0
+  poolObjectType: 10
   ScheduledOffTime: 0
 --- !u!114 &-7001057484377016164
 MonoBehaviour:

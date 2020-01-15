@@ -24,6 +24,19 @@ namespace RBSnake
             {
                 SpawnTail();
                 Destroy(other.gameObject);
+
+                // spawn blood effects
+                GameObject blood = PoolManager.Instance.GetObject(PoolObjectType.VFX_BLOOD);
+                GameObject rat = PoolManager.Instance.GetObject(PoolObjectType.VFX_RAT);
+
+                blood.transform.position = this.transform.position;
+                blood.gameObject.SetActive(true);
+
+                rat.transform.position = this.transform.position;
+                rat.gameObject.SetActive(true);
+
+                // camera shake
+                CameraManager.Instance.CAMERA_CONTROL.ShakeCamera();
             }
                     
             // collision against self
