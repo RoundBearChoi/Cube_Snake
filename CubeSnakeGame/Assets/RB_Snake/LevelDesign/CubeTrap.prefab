@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 8605363198355961797}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.5, z: 0}
-  m_LocalScale: {x: 0.95, y: 1, z: 0.95}
+  m_LocalScale: {x: 0.92, y: 1, z: 0.92}
   m_Children: []
   m_Father: {fileID: 1655649568107952891}
   m_RootOrder: 0
@@ -87,7 +87,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8605363198355961797}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.89801717, y: 0.24602173, z: 0.8957621}
@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 1655649568107952891}
   - component: {fileID: 8914317205603409674}
   - component: {fileID: 8177493968770673158}
+  - component: {fileID: 3738393269298689520}
   m_Layer: 0
   m_Name: CubeTrap
   m_TagString: Untagged
@@ -171,3 +172,15 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &3738393269298689520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8791952180695206434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8d15cbaaa118a459dc6da7c56f637c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

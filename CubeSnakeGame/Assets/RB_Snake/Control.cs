@@ -64,7 +64,7 @@ namespace RBSnake
             {
                 return;
             }
-
+            
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 if (!IsReverse(KeyCode.LeftArrow) &&

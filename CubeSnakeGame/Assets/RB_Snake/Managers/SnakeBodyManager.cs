@@ -8,7 +8,7 @@ namespace RBSnake
     {
         public List<SnakeBody> Bodies = new List<SnakeBody>();
         public float BigUpdateTime;
-        public float BigUpdateInterval = 0.15f;
+        public float BigUpdateInterval = 0.165f;
         public bool FirstUpdate;
         public bool IsDead;
 

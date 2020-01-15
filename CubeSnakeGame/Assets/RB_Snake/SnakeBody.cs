@@ -38,6 +38,24 @@ namespace RBSnake
                     }
                 }
             }
+
+            // collision against water
+            if (other.transform.parent != null)
+            {
+                if (other.transform.parent.gameObject.GetComponent<Water>() != null)
+                {
+                    SnakeBodyManager.Instance.IsDead = true;
+                }
+            }
+
+            // collision against trap
+            if (other.transform.parent != null)
+            {
+                if (other.transform.parent.gameObject.GetComponent<Trap>() != null)
+                {
+                    SnakeBodyManager.Instance.IsDead = true;
+                }
+            }
         }
 
         void SpawnTail()
@@ -84,6 +102,11 @@ namespace RBSnake
 
         public void MoveBody()
         {
+            if (control.LastPress == KeyCode.None)
+            {
+                return;
+            }
+
             if (Front != null)
             {
                 if (Front.transform.position == this.transform.position)
