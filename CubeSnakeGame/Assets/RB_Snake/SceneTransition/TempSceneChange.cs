@@ -15,20 +15,26 @@ namespace RBSnake
             // keep only one copy
             UITransitionCanvas[] arr = FindObjectsOfType<UITransitionCanvas>();
 
-            transitionCanvas = arr[0];
-
-            foreach(UITransitionCanvas c in arr)
+            if (arr.Length > 0)
             {
-                if (c != transitionCanvas)
+                transitionCanvas = arr[0];
+
+                foreach (UITransitionCanvas c in arr)
                 {
-                    Destroy(c.gameObject);
+                    if (c != transitionCanvas)
+                    {
+                        Destroy(c.gameObject);
+                    }
                 }
             }
 
             // turn off transition ui in the beginning of a scene
             if (transitionCanvas != null)
             {
-                transitionCanvas.TransitionUIAnimator.SetBool("TurnOnTransitionUI", false);
+                if (transitionCanvas != null)
+                {
+                    transitionCanvas.TransitionUIAnimator.SetBool("TurnOnTransitionUI", false);
+                }
             }
         }
 
@@ -37,11 +43,16 @@ namespace RBSnake
             //trigger a scene transition
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                if (transitionCanvas != null)
-                {
-                    transitionCanvas.NextScene = NextScene;
-                    transitionCanvas.TransitionUIAnimator.SetBool("TurnOnTransitionUI", true);
-                }
+                ChangeScene();
+            }
+        }
+
+        public void ChangeScene()
+        {
+            if (transitionCanvas != null)
+            {
+                transitionCanvas.NextScene = NextScene;
+                transitionCanvas.TransitionUIAnimator.SetBool("TurnOnTransitionUI", true);
             }
         }
     }
