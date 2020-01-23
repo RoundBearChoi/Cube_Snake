@@ -200,6 +200,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1088009396379164279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 592484239068708687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1df92270cfbfac43843f2f0963a1c64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8489563341832650205
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -262,30 +274,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8242780081343028928, guid: 0ea58e2a5c14e3542ae9b56b03209f43,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.98
-      objectReference: {fileID: 0}
-    - target: {fileID: 8242780081343028928, guid: 0ea58e2a5c14e3542ae9b56b03209f43,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.98
-      objectReference: {fileID: 0}
-    - target: {fileID: 8242780081343028928, guid: 0ea58e2a5c14e3542ae9b56b03209f43,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.98
-      objectReference: {fileID: 0}
-    - target: {fileID: 8278663435536860106, guid: 0ea58e2a5c14e3542ae9b56b03209f43,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 75a0ad3f22bc48d4685246ec16c57391, type: 2}
     - target: {fileID: 9072520860520792722, guid: 0ea58e2a5c14e3542ae9b56b03209f43,
         type: 3}
       propertyPath: m_Name
-      value: Head Variant
+      value: Head
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ea58e2a5c14e3542ae9b56b03209f43, type: 3}

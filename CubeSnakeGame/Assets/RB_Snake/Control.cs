@@ -60,7 +60,7 @@ namespace RBSnake
 
         void Update()
         {
-            if (SnakeBodyManager.Instance.IsDead)
+            if (SnakeBodyManager.Instance.PLAYER.IsDead)
             {
                 return;
             }

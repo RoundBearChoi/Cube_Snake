@@ -20,6 +20,11 @@ namespace RBSnake
 
         void Update()
         {
+            if (SnakeBodyManager.Instance.PLAYER.IsDead)
+            {
+                return;
+            }
+
             if (Input.touchCount != 0)
             {
                 FirstTouch = Input.GetTouch(0);

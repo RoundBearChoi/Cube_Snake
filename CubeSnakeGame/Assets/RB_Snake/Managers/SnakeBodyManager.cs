@@ -10,12 +10,24 @@ namespace RBSnake
         public float BigUpdateTime;
         public float BigUpdateInterval = 0.165f;
         public bool FirstUpdate;
-        public bool IsDead;
+
+        private SnakePlayer player;
+
+        public SnakePlayer PLAYER
+        {
+            get
+            {
+                if (player == null)
+                {
+                    player = FindObjectOfType<SnakePlayer>();
+                }
+                return player;
+            }
+        }
 
         private void Awake()
         {
             FirstUpdate = true;
-            IsDead = false;
         }
 
         public SnakeBody SNAKE_HEAD
@@ -59,10 +71,10 @@ namespace RBSnake
                 BigUpdateTime = 0f;
             }
         }
-
+        
         public void UpdateBodies()
         {
-            if (!IsDead)
+            if (!PLAYER.IsDead)
             {
                 for (int i = 0; i < Bodies.Count; i++)
                 {

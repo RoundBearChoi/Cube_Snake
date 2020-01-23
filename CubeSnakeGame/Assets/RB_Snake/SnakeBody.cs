@@ -47,7 +47,7 @@ namespace RBSnake
                     SnakeBody collidedBody = other.gameObject.GetComponent<SnakeBody>();
                     if (collidedBody != null)
                     {
-                        SnakeBodyManager.Instance.IsDead = true;
+                        SnakeBodyManager.Instance.PLAYER.IsDead = true;
                     }
                 }
             }
@@ -57,7 +57,7 @@ namespace RBSnake
             {
                 if (other.transform.parent.gameObject.GetComponent<Water>() != null)
                 {
-                    SnakeBodyManager.Instance.IsDead = true;
+                    SnakeBodyManager.Instance.PLAYER.IsDead = true;
                 }
             }
 
@@ -66,7 +66,7 @@ namespace RBSnake
             {
                 if (other.transform.parent.gameObject.GetComponent<Trap>() != null)
                 {
-                    SnakeBodyManager.Instance.IsDead = true;
+                    SnakeBodyManager.Instance.PLAYER.IsDead = true;
                 }
             }
         }

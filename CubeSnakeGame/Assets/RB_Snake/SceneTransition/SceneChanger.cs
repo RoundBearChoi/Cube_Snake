@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RBSnake
 {
-    public class TempSceneChange : MonoBehaviour
+    public class SceneChanger : MonoBehaviour
     {
         public string NextScene;
 
@@ -38,14 +38,14 @@ namespace RBSnake
             }
         }
 
-        private void Update()
-        {
-            //trigger a scene transition
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                ChangeScene();
-            }
-        }
+        //private void Update()
+        //{
+        //    //trigger a scene transition
+        //    if (Input.GetKeyDown(KeyCode.Escape))
+        //    {
+        //        ChangeScene();
+        //    }
+        //}
 
         public void ChangeScene()
         {
@@ -53,6 +53,10 @@ namespace RBSnake
             {
                 transitionCanvas.NextScene = NextScene;
                 transitionCanvas.TransitionUIAnimator.SetBool("TurnOnTransitionUI", true);
+            }
+            else
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadScene(NextScene);
             }
         }
     }

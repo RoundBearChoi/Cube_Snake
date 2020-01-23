@@ -6,9 +6,11 @@ namespace RBSnake
 {
     public class UIManager : Singleton<UIManager>
     {
+        public PlayerDeathMenu DeathMenu;
+
         private ArrowKeys arrowKeysUI;
         private TouchImage touchImageUI;
-
+        
         public ArrowKeys ARROW_KEYS_UI
         {
             get
