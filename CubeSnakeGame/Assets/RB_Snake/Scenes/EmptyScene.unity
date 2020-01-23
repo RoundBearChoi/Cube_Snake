@@ -1660,7 +1660,7 @@ GameObject:
   - component: {fileID: 2062543399}
   - component: {fileID: 2062543398}
   m_Layer: 0
-  m_Name: TempSceneChanger
+  m_Name: SceneChanger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

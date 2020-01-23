@@ -28,7 +28,7 @@ namespace RBSnake
 
         IEnumerator _TriggerSceneTransition()
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.6f);
             UnityEngine.SceneManagement.SceneManager.LoadScene(NextScene);
         }
     }
