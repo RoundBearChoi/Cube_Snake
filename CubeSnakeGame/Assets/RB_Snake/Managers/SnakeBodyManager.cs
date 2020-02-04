@@ -103,11 +103,10 @@ namespace RBSnake
                                 water.transform.position = body.transform.position;
                                 water.gameObject.SetActive(true);
 
-                                CameraManager.Instance.CAMERA_CONTROL.TriggerSlowMotion(0.15f, 0.25f);
+                                CameraManager.Instance.CAMERA_CONTROL.ZoomInAndOut(0.15f, 0.25f);
                             }
 
                             body.transform.position += Vector3.down;
-                            CameraManager.Instance.CAMERA_CONTROL.ShakeCamera();
                         }
                     }
 

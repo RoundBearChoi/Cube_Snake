@@ -7,8 +7,8 @@ namespace RBSnake
     public class CameraControl : MonoBehaviour
     {
         public Animator cameraAnimator;
-        private Coroutine ShakeRoutine;
-        private Coroutine SlowMotionRoutine = null;
+        private Coroutine ShakeRoutine = null;
+        private Coroutine ZoomInOutRoutine = null;
 
         private void Start()
         {
@@ -25,15 +25,6 @@ namespace RBSnake
             ShakeRoutine = StartCoroutine(_ShakeCamera());
         }
 
-        public void TriggerSlowMotion(float timeScale, float time)
-        {
-            if (SlowMotionRoutine == null)
-            {
-                Debug.Log("slow motion triggered");
-                StartCoroutine(_SlowMotion(timeScale, time));
-            }
-        }
-
         IEnumerator _ShakeCamera()
         {
             cameraAnimator.SetBool("CameraShake", true);
@@ -44,14 +35,26 @@ namespace RBSnake
             ShakeRoutine = null;
         }
 
-        IEnumerator _SlowMotion(float timeScale, float time)
+        public void ZoomInAndOut(float timeScale, float time)
         {
+            if (ZoomInOutRoutine != null)
+            {
+                StopCoroutine(ZoomInOutRoutine);
+            }
+
+            ZoomInOutRoutine = StartCoroutine(_ZoomInAndOut(timeScale, time));
+        }
+
+        IEnumerator _ZoomInAndOut(float timeScale, float time)
+        {
+            cameraAnimator.SetBool("Zoom", true);
             Time.timeScale = timeScale;
+
             yield return new WaitForSeconds(time);
 
             Time.timeScale = 1f;
-
-            SlowMotionRoutine = null;
+            cameraAnimator.SetBool("Zoom", false);
+            ZoomInOutRoutine = null;
         }
     }
 }
