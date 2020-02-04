@@ -47,6 +47,8 @@ namespace RBSnake
 
         IEnumerator _ZoomInAndOut(float timeScale, float time)
         {
+            yield return new WaitForEndOfFrame();
+
             cameraAnimator.SetBool("Zoom", true);
             Time.timeScale = timeScale;
 
