@@ -65,8 +65,8 @@ namespace RBSnake
                         SnakeBodyManager.Instance.PLAYER.IsDead = true;
                         SpawnSnakeDeathEffects(this.transform.position);
 
-                        // camera shake
                         CameraManager.Instance.CAMERA_CONTROL.ShakeCamera();
+                        CameraManager.Instance.CAMERA_CONTROL.TriggerSlowMotion(0.15f, 0.25f);
                     }
                 }
             }

@@ -8,6 +8,7 @@ namespace RBSnake
     {
         public Animator cameraAnimator;
         private Coroutine ShakeRoutine;
+        private Coroutine SlowMotionRoutine = null;
 
         private void Start()
         {
@@ -24,14 +25,33 @@ namespace RBSnake
             ShakeRoutine = StartCoroutine(_ShakeCamera());
         }
 
+        public void TriggerSlowMotion(float timeScale, float time)
+        {
+            if (SlowMotionRoutine == null)
+            {
+                Debug.Log("slow motion triggered");
+                StartCoroutine(_SlowMotion(timeScale, time));
+            }
+        }
+
         IEnumerator _ShakeCamera()
         {
             cameraAnimator.SetBool("CameraShake", true);
 
-            yield return new WaitForSeconds(0.125f);
+            yield return new WaitForSeconds(0.11f);
 
             cameraAnimator.SetBool("CameraShake", false);
             ShakeRoutine = null;
+        }
+
+        IEnumerator _SlowMotion(float timeScale, float time)
+        {
+            Time.timeScale = timeScale;
+            yield return new WaitForSeconds(time);
+
+            Time.timeScale = 1f;
+
+            SlowMotionRoutine = null;
         }
     }
 }

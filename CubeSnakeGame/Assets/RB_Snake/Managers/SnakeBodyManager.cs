@@ -97,12 +97,16 @@ namespace RBSnake
                         }
                         else
                         {
+                            if (body.transform.position.y > -0.1f)
+                            {
+                                GameObject water = PoolManager.Instance.GetObject(PoolObjectType.VFX_WATER);
+                                water.transform.position = body.transform.position;
+                                water.gameObject.SetActive(true);
+
+                                CameraManager.Instance.CAMERA_CONTROL.TriggerSlowMotion(0.15f, 0.25f);
+                            }
+
                             body.transform.position += Vector3.down;
-
-                            GameObject water = PoolManager.Instance.GetObject(PoolObjectType.VFX_WATER);
-                            water.transform.position = new Vector3(body.transform.position.x, 0f, body.transform.position.z);
-                            water.gameObject.SetActive(true);
-
                             CameraManager.Instance.CAMERA_CONTROL.ShakeCamera();
                         }
                     }
