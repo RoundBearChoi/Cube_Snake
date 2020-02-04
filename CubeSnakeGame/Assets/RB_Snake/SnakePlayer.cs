@@ -7,6 +7,7 @@ namespace RBSnake
     public class SnakePlayer : MonoBehaviour
     {
         public bool IsDead;
+        public bool IsDrowning;
 
         private void Awake()
         {

@@ -17,6 +17,30 @@ namespace RBSnake
             control = FindObjectOfType<Control>();
         }
 
+        void SpawnRatDeathEffects(Vector3 pos)
+        {
+            GameObject blood = PoolManager.Instance.GetObject(PoolObjectType.VFX_BLOOD);
+            GameObject rat = PoolManager.Instance.GetObject(PoolObjectType.VFX_RAT);
+
+            blood.transform.position = pos;
+            blood.gameObject.SetActive(true);
+
+            rat.transform.position = pos;
+            rat.gameObject.SetActive(true);
+        }
+
+        void SpawnSnakeDeathEffects(Vector3 pos)
+        {
+            GameObject blood = PoolManager.Instance.GetObject(PoolObjectType.VFX_BLOOD);
+            GameObject snake = PoolManager.Instance.GetObject(PoolObjectType.VFX_SNAKE);
+
+            blood.transform.position = pos;
+            blood.gameObject.SetActive(true);
+
+            snake.transform.position = pos;
+            snake.gameObject.SetActive(true);
+        }
+
         private void OnTriggerEnter(Collider other)
         {
             // collision against food
@@ -24,17 +48,8 @@ namespace RBSnake
             {
                 SpawnTail();
                 Destroy(other.gameObject);
-
-                // spawn blood effects
-                GameObject blood = PoolManager.Instance.GetObject(PoolObjectType.VFX_BLOOD);
-                GameObject rat = PoolManager.Instance.GetObject(PoolObjectType.VFX_RAT);
-
-                blood.transform.position = this.transform.position;
-                blood.gameObject.SetActive(true);
-
-                rat.transform.position = this.transform.position;
-                rat.gameObject.SetActive(true);
-
+                SpawnRatDeathEffects(this.transform.position);
+                
                 // camera shake
                 CameraManager.Instance.CAMERA_CONTROL.ShakeCamera();
             }
@@ -48,6 +63,10 @@ namespace RBSnake
                     if (collidedBody != null)
                     {
                         SnakeBodyManager.Instance.PLAYER.IsDead = true;
+                        SpawnSnakeDeathEffects(this.transform.position);
+
+                        // camera shake
+                        CameraManager.Instance.CAMERA_CONTROL.ShakeCamera();
                     }
                 }
             }
@@ -58,6 +77,8 @@ namespace RBSnake
                 if (other.transform.parent.gameObject.GetComponent<Water>() != null)
                 {
                     SnakeBodyManager.Instance.PLAYER.IsDead = true;
+                    SnakeBodyManager.Instance.PLAYER.IsDrowning = true;
+                    control.KeyPresses.Clear();
                 }
             }
 
@@ -110,11 +131,6 @@ namespace RBSnake
 
         public void UpdateBody()
         {
-            MoveBody();
-        }
-
-        public void MoveBody()
-        {
             if (control.LastPress == KeyCode.None)
             {
                 return;
@@ -128,7 +144,7 @@ namespace RBSnake
                 }
                 else
                 {
-                    //move body (just follow front)
+                    //move body (follow front)
                     this.transform.position = Front.transform.position;
                 }
             }

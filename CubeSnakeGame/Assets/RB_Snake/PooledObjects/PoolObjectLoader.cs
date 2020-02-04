@@ -7,8 +7,11 @@ namespace RBSnake
     public enum PoolObjectType
     {
         ARROW_KEY = 10,
+
         VFX_BLOOD = 100,
         VFX_RAT = 101,
+        VFX_SNAKE = 102,
+        VFX_WATER = 103,
     }
 
     public class PoolObjectLoader : MonoBehaviour
@@ -32,6 +35,16 @@ namespace RBSnake
                 case PoolObjectType.VFX_RAT:
                     {
                         obj = Instantiate(Resources.Load("Rat Particles Variant", typeof(GameObject)) as GameObject);
+                    }
+                    break;
+                case PoolObjectType.VFX_SNAKE:
+                    {
+                        obj = Instantiate(Resources.Load("Snake Particles Variant", typeof(GameObject)) as GameObject);
+                    }
+                    break;
+                case PoolObjectType.VFX_WATER:
+                    {
+                        obj = Instantiate(Resources.Load("Water Particles Variant", typeof(GameObject)) as GameObject);
                     }
                     break;
             }

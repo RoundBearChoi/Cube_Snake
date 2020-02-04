@@ -84,6 +84,32 @@ namespace RBSnake
                 UIManager.Instance.ARROW_KEYS_UI.UpdateArrows();
                 UIManager.Instance.ARROW_KEYS_UI.UpdateLastArrow();
             }
+            else
+            {
+                if (PLAYER.IsDrowning)
+                {
+                    foreach(SnakeBody body in Bodies)
+                    {
+                        //Debug.Log("drowning body: " + body.gameObject.name);
+                        if (body.Front != null)
+                        {
+                            body.transform.position = body.Front.transform.position;
+                        }
+                        else
+                        {
+                            body.transform.position += Vector3.down;
+
+                            GameObject water = PoolManager.Instance.GetObject(PoolObjectType.VFX_WATER);
+                            water.transform.position = new Vector3(body.transform.position.x, 0f, body.transform.position.z);
+                            water.gameObject.SetActive(true);
+
+                            CameraManager.Instance.CAMERA_CONTROL.ShakeCamera();
+                        }
+                    }
+
+                    PLAYER.IsDrowning = false;
+                }
+            }
         }
     }
 }
