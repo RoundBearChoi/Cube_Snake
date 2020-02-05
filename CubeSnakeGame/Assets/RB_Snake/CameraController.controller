@@ -41,7 +41,7 @@ AnimatorStateMachine:
     m_Position: {x: 140, y: 190, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7089309108834526470}
-    m_Position: {x: 250, y: 310, z: 0}
+    m_Position: {x: 230, y: 310, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7538645382446060405}
     m_Position: {x: 10, y: 310, z: 0}
@@ -122,13 +122,13 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Zoom
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
