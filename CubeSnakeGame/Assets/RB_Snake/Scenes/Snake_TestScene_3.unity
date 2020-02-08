@@ -2578,7 +2578,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: RETURN TO MENU
+  m_text: RETURN TO MAP
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -2647,7 +2647,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 253746543}
-    characterCount: 14
+    characterCount: 13
     spriteCount: 0
     spaceCount: 2
     wordCount: 3
@@ -6522,7 +6522,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 627362457}
-  m_LocalRotation: {x: 0.50385284, y: 0.021394232, z: -0.01248434, w: 0.8634343}
+  m_LocalRotation: {x: 0.50385284, y: 0.02139423, z: -0.01248434, w: 0.8634343}
   m_LocalPosition: {x: -0.6, y: 21.44, z: -12.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -7124,7 +7124,7 @@ GameObject:
   - component: {fileID: 686325120}
   - component: {fileID: 686325119}
   m_Layer: 0
-  m_Name: ReturnToMenu
+  m_Name: ReturnToMap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7142,7 +7142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a48afa481e39ff141b3300853a630428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextScene: Snake_EmptyScene
+  NextScene: Snake_MapScene
 --- !u!114 &686325120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8592,7 +8592,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 824014018}
-  m_LocalRotation: {x: 0.50385284, y: 0.021394232, z: -0.01248434, w: 0.8634343}
+  m_LocalRotation: {x: 0.50385284, y: 0.02139423, z: -0.01248434, w: 0.8634343}
   m_LocalPosition: {x: -5.632578, y: 19.512102, z: -13.888585}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
