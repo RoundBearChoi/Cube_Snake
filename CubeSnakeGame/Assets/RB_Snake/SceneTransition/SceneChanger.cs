@@ -38,15 +38,6 @@ namespace RBSnake
             }
         }
 
-        //private void Update()
-        //{
-        //    //trigger a scene transition
-        //    if (Input.GetKeyDown(KeyCode.Escape))
-        //    {
-        //        ChangeScene();
-        //    }
-        //}
-
         public void ChangeScene()
         {
             if (transitionCanvas != null)

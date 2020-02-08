@@ -1463,7 +1463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a48afa481e39ff141b3300853a630428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextScene: Snake_TestScene
+  NextScene: Snake_MapScene
 --- !u!114 &1972654993
 MonoBehaviour:
   m_ObjectHideFlags: 0
