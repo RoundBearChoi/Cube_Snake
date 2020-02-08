@@ -18,17 +18,6 @@ namespace RBSnake
 
         public void TriggerSceneTransition()
         {
-            if (TransitionRoutine != null)
-            {
-                StopCoroutine(TransitionRoutine);
-            }
-
-            TransitionRoutine = StartCoroutine(_TriggerSceneTransition());
-        }
-
-        IEnumerator _TriggerSceneTransition()
-        {
-            yield return new WaitForSeconds(0.6f);
             UnityEngine.SceneManagement.SceneManager.LoadScene(NextScene);
         }
     }

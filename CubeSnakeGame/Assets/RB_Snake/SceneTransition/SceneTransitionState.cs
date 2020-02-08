@@ -6,10 +6,12 @@ namespace RBSnake
 {
     public class SceneTransitionState : StateMachineBehaviour
     {
-        override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-        {
-            UITransitionCanvas canvas = animator.GetComponentInParent<UITransitionCanvas>();
-            canvas.TriggerSceneTransition();
-        }
+        //no longer used (check SceneTransitionTrigger.cs)
+
+        //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+        //{
+        //    UITransitionCanvas canvas = animator.GetComponentInParent<UITransitionCanvas>();
+        //    canvas.TriggerSceneTransition();
+        //}
     }
 }
