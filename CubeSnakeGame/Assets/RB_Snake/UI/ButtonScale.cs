@@ -4,16 +4,10 @@ using UnityEngine;
 
 namespace RBSnake
 {
-    public class ButtonScale : MonoBehaviour
+    public class ButtonScale : ListenerResponse
     {
-        GameEventListener listener;
         Dictionary<GameObject, Animator> DicButtons = new Dictionary<GameObject, Animator>();
         
-        private void Awake()
-        {
-            listener = GetComponent<GameEventListener>();
-        }
-
         public void ScaleUpButton()
         {
             Animator anim = GetButtonAnimator(listener.gameEvent.EVENTOBJ);

@@ -8,10 +8,16 @@ namespace RBSnake
     {
         List<GameEventListener> ListListeners = new List<GameEventListener>();
         GameObject EventObj;
+        int Index;
 
         public GameObject EVENTOBJ
         {
             get { return EventObj; }
+        }
+
+        public int INDEX
+        {
+            get { return Index; }
         }
 
         private void Awake()
@@ -30,6 +36,16 @@ namespace RBSnake
         public void Raise(GameObject eventObj)
         {
             EventObj = eventObj;
+
+            foreach (GameEventListener listener in ListListeners)
+            {
+                listener.OnRaiseEvent();
+            }
+        }
+
+        public void Raise(int index)
+        {
+            Index = index;
 
             foreach (GameEventListener listener in ListListeners)
             {

@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/RB_Snake/Scenes/Snake_TestScene.unity
     guid: 1ceba4aa7a7809b46be771327e964a82
+  - enabled: 1
+    path: Assets/RB_Snake/Scenes/Snake_TestScene_2.unity
+    guid: 596704b62b82ff141bdddf62ffd29611
   m_configObjects: {}
