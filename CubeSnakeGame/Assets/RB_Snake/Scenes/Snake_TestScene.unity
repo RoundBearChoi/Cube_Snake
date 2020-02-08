@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -6522,7 +6522,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 627362457}
-  m_LocalRotation: {x: 0.50385284, y: 0.02139423, z: -0.01248434, w: 0.8634343}
+  m_LocalRotation: {x: 0.5038529, y: 0.02139416, z: -0.012484299, w: 0.8634343}
   m_LocalPosition: {x: -0.6, y: 21.44, z: -12.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -8592,7 +8592,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 824014018}
-  m_LocalRotation: {x: 0.50385284, y: 0.02139423, z: -0.01248434, w: 0.8634343}
+  m_LocalRotation: {x: 0.5038529, y: 0.02139416, z: -0.012484299, w: 0.8634343}
   m_LocalPosition: {x: -5.632578, y: 19.512102, z: -13.888585}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -13775,7 +13775,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1239722821}
-  m_LocalRotation: {x: 0.5038529, y: 0.021394162, z: -0.0124843, w: 0.8634343}
+  m_LocalRotation: {x: 0.50385284, y: 0.021394232, z: -0.01248434, w: 0.8634343}
   m_LocalPosition: {x: -5.632578, y: 19.512102, z: -13.888585}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -21542,7 +21542,7 @@ GameObject:
   - component: {fileID: 1910222032}
   - component: {fileID: 1910222033}
   m_Layer: 0
-  m_Name: Setup
+  m_Name: GameSetup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
