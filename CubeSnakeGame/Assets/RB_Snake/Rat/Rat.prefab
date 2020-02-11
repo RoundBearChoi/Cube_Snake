@@ -355,6 +355,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mouse1
       objectReference: {fileID: 0}
+    - target: {fileID: 7598748711097892397, guid: 0e83f2789d45c4a41a5b1924d8cb8642,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e0b34fc151388164b94a7383c8c8f109, type: 2}
     - target: {fileID: 8248501311262790966, guid: 0e83f2789d45c4a41a5b1924d8cb8642,
         type: 3}
       propertyPath: m_LocalPosition.x
