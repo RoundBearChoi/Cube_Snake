@@ -60,6 +60,7 @@ namespace RBSnake
                 if (!SnakeBodyManager.Instance.FirstUpdate)
                 {
                     SnakeBody collidedBody = other.gameObject.GetComponent<SnakeBody>();
+                    other.gameObject.GetComponent<MeshRenderer>().enabled = false;
                     if (collidedBody != null)
                     {
                         SnakeBodyManager.Instance.PLAYER.IsDead = true;
@@ -75,6 +76,16 @@ namespace RBSnake
             {
                 if (other.transform.parent.gameObject.GetComponent<Water>() != null)
                 {
+                    // head face downward
+                    if (!SnakeBodyManager.Instance.PLAYER.IsDrowning)
+                    {
+                        if (Front == null)
+                        {
+                            Vector3 newup = this.transform.forward;
+                            this.transform.LookAt(this.transform.position + new Vector3(0f, -1f, 0f), newup);
+                        }
+                    }
+
                     SnakeBodyManager.Instance.PLAYER.IsDead = true;
                     SnakeBodyManager.Instance.PLAYER.IsDrowning = true;
                     control.KeyPresses.Clear();
