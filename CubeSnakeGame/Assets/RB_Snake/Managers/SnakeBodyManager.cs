@@ -50,6 +50,8 @@ namespace RBSnake
         {
             SnakeBody[] arr = GameObject.FindObjectsOfType<SnakeBody>();
 
+            CheckPointManager.Instance.LoadMapSelection();
+
             foreach(SnakeBody s in arr)
             {
                 s.InitBodyOnCheckPoint();
