@@ -6,8 +6,9 @@ namespace RBSnake
 {
     public class GameSetup : MonoBehaviour
     {
-        void Start()
+        IEnumerator Start()
         {
+            yield return new WaitForEndOfFrame();
             SnakeBodyManager.Instance.InitSnake();
         }
     }

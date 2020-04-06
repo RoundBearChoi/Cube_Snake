@@ -6,6 +6,9 @@ namespace RBSnake
 {
     public class SnakeBody : MonoBehaviour
     {
+        [Header("Init")]
+        public bool CheckPointLoaded;
+
         [Header("Parts")]
         public SnakeBody Front;
         public SnakeBody Back;
@@ -114,6 +117,7 @@ namespace RBSnake
             SnakeBodyManager.Instance.Bodies[1].Back = SnakeBodyManager.Instance.Bodies[0];
 
             newBody.ScaleDown();
+            newBody.CheckPointLoaded = true;
         }
 
         public void RegisterBody()
@@ -136,6 +140,25 @@ namespace RBSnake
             if (this.transform.localScale.x >= 0.5f)
             {
                 this.transform.localScale = Front.transform.localScale * 0.925f;
+            }
+        }
+
+        public void InitBodyOnCheckPoint()
+        {
+            if (!CheckPointLoaded)
+            {
+                int cpIndex = CheckPointManager.Instance.checkPointLoader.sceneSelection.LastSelectedCheckpoint;
+
+                foreach (CheckPoint p in CheckPointManager.Instance.PointsList)
+                {
+                    if (p.Index == cpIndex)
+                    {
+                        this.transform.position = p.transform.position;
+                        break;
+                    }
+                }
+
+                CheckPointLoaded = true;
             }
         }
 

@@ -96,6 +96,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -201,7 +202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 398622802}
   m_Layer: 0
-  m_Name: '---Listeners'
+  m_Name: ---Listeners
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -324,7 +325,7 @@ GameObject:
   m_Component:
   - component: {fileID: 405917312}
   m_Layer: 0
-  m_Name: '---Camera&Lighting'
+  m_Name: ---Camera&Lighting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -632,7 +633,7 @@ GameObject:
   m_Component:
   - component: {fileID: 747354134}
   m_Layer: 0
-  m_Name: '---SceneChanger'
+  m_Name: ---SceneChanger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -893,7 +894,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1263621052}
   m_Layer: 0
-  m_Name: '---Events'
+  m_Name: ---Events
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -938,8 +939,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1457399972}
   m_Enabled: 1
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 1
+  m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
   m_Intensity: 1
   m_Range: 10
@@ -1077,7 +1079,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1580414026}
   m_Layer: 0
-  m_Name: '---UI'
+  m_Name: ---UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1150,7 +1152,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1947101516}
   m_Layer: 0
-  m_Name: '---RunTime'
+  m_Name: ---RunTime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

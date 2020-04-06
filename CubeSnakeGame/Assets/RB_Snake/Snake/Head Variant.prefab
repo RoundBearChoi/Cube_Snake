@@ -55,6 +55,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -147,6 +148,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -231,6 +233,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e0b34fc151388164b94a7383c8c8f109, type: 2}
+    - target: {fileID: 2718564064226567830, guid: 7591e10c9ef13634990de1f4c6014a59,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4519074226061577613, guid: 7591e10c9ef13634990de1f4c6014a59,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -303,6 +310,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7591e10c9ef13634990de1f4c6014a59, type: 3}
+--- !u!23 &5814741010255283559 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2718564064226567830, guid: 7591e10c9ef13634990de1f4c6014a59,
+    type: 3}
+  m_PrefabInstance: {fileID: 8433091152285295601}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8489563341832650205
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -310,6 +323,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1626581575077982893, guid: 0ea58e2a5c14e3542ae9b56b03209f43,
+        type: 3}
+      propertyPath: Renderers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1626581575077982893, guid: 0ea58e2a5c14e3542ae9b56b03209f43,
+        type: 3}
+      propertyPath: Renderers.Array.data[0]
+      value: 
+      objectReference: {fileID: 5814741010255283559}
     - target: {fileID: 8242780081343028928, guid: 0ea58e2a5c14e3542ae9b56b03209f43,
         type: 3}
       propertyPath: m_LocalPosition.x

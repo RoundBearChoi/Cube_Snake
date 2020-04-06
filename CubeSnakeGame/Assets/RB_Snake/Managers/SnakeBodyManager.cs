@@ -52,10 +52,12 @@ namespace RBSnake
 
             foreach(SnakeBody s in arr)
             {
+                s.InitBodyOnCheckPoint();
+
                 if (s.Back == null)
                 {
                     s.RegisterBody();
-                    break;
+                    continue;
                 }
             }
         }
@@ -78,7 +80,10 @@ namespace RBSnake
             {
                 for (int i = 0; i < Bodies.Count; i++)
                 {
-                    Bodies[i].UpdateBody();
+                    if (Bodies[i].CheckPointLoaded)
+                    {
+                        Bodies[i].UpdateBody();
+                    }
                 }
 
                 UIManager.Instance.ARROW_KEYS_UI.UpdateArrows();
