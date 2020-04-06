@@ -96,6 +96,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -130,7 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 19391735}
   m_Layer: 0
-  m_Name: '---UI'
+  m_Name: ---UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -388,7 +389,7 @@ GameObject:
   m_Component:
   - component: {fileID: 211587739}
   m_Layer: 0
-  m_Name: '---Islands'
+  m_Name: ---Islands
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -418,7 +419,7 @@ GameObject:
   m_Component:
   - component: {fileID: 241954544}
   m_Layer: 0
-  m_Name: '---Camera'
+  m_Name: ---Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -485,6 +486,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -608,7 +610,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4285061520
+    rgba: 4285127056
   m_fontColor: {r: 0.5660664, g: 0.8509804, b: 0.41176468, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -1388,7 +1390,7 @@ GameObject:
   m_Component:
   - component: {fileID: 678434606}
   m_Layer: 0
-  m_Name: '---Events'
+  m_Name: ---Events
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2150,8 +2152,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 804446068}
   m_Enabled: 1
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 1
+  m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
   m_Intensity: 1
   m_Range: 10
@@ -2804,6 +2807,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2927,7 +2931,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4283949567
+    rgba: 4284015359
   m_fontColor: {r: 1, g: 0.88597274, b: 0.34433958, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -4676,7 +4680,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4291258840
+    rgba: 4291324377
   m_fontColor: {r: 0.8490566, g: 0.41251332, b: 0.7823865, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -4777,7 +4781,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1791794307}
   m_Layer: 0
-  m_Name: '---Listeners'
+  m_Name: ---Listeners
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4807,7 +4811,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1856613098}
   m_Layer: 0
-  m_Name: '---SceneChanger'
+  m_Name: ---SceneChanger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5292,6 +5296,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5544,6 +5549,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5708,7 +5714,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279635313
+    rgba: 4279700849
   m_fontColor: {r: 0.44339618, g: 0.052287266, b: 0.08928176, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
