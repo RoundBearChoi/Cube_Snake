@@ -6,13 +6,14 @@ namespace RBSnake
 {
     public class CheckPoint : MonoBehaviour
     {
+        public SnakeIslandType IslandType;
         public int Index;
 
         private void Start()
         {
-            if (!CheckPointManager.Instance.PointsList.Contains(this))
+            if (!SaveManager.Instance.PointsList.Contains(this))
             {
-                CheckPointManager.Instance.PointsList.Add(this);
+                SaveManager.Instance.PointsList.Add(this);
             }
         }
     }

@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a338a6e972a2acb448fa49839ac7be5c, type: 3}
   m_Name: SceneSelectionObject
   m_EditorClassIdentifier: 
-  LastSelectedScene: 0
+  LastSelectedScene: 1
   LastSelectedCheckpoint: 0
   IslandTypeOne: Snake_TestScene
   IslandTypeTwo: Snake_TestScene_2
   IslandTypeThree: Snake_TestScene_3
   IslandTypeFour: Snake_TestScene_4
+  IslandOneCheckpoints: 
+  IslandTwoCheckpoints: 
+  IslandThreeCheckpoints: 
+  IslandFourCheckpoints: 

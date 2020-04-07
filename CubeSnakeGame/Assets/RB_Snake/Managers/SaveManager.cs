@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RBSnake
 {
-    public class CheckPointManager : Singleton<CheckPointManager>
+    public class SaveManager : Singleton<SaveManager>
     {
         public CheckPointLoader checkPointLoader
         {
@@ -23,22 +23,22 @@ namespace RBSnake
 
         private CheckPointLoader cpl;
 
-        public void SaveMapSelection(SceneSelection sceneSelection)
+        public void SaveData()
         {
-            string json = JsonUtility.ToJson(sceneSelection);
+            string json = JsonUtility.ToJson(checkPointLoader);
             string path = Application.persistentDataPath +
                 System.IO.Path.DirectorySeparatorChar +
-                "MapSelection.txt";
+                "SavedSnake.txt";
             System.IO.File.WriteAllText(path, json);
 
             Debug.Log("map selection saved: " + path);
         }
 
-        public void LoadMapSelection()
+        public void LoadData()
         {
             string path = Application.persistentDataPath +
                 System.IO.Path.DirectorySeparatorChar +
-                "MapSelection.txt";
+                "SavedSnake.txt";
 
             if (System.IO.File.Exists(path))
             {

@@ -41,7 +41,7 @@ namespace RBSnake
                 sceneChanger.NextScene = sceneSelectionObj.IslandTypeFour;
             }
 
-            CheckPointManager.Instance.SaveMapSelection(sceneSelectionObj);
+            SaveManager.Instance.SaveData();
             sceneChanger.ChangeScene();
         }
     }

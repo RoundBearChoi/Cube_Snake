@@ -63,13 +63,13 @@ namespace RBSnake
                 if (!SnakeBodyManager.Instance.FirstUpdate)
                 {
                     SnakeBody collidedBody = other.gameObject.GetComponent<SnakeBody>();
-                    other.gameObject.GetComponent<MeshRenderer>().enabled = false;
+                    
                     if (collidedBody != null)
                     {
                         SnakeBodyManager.Instance.PLAYER.IsDead = true;
                         SpawnSnakeDeathEffects(this.transform.position);
-
                         CameraManager.Instance.CAMERA_CONTROL.ZoomInAndOut(0.15f, 0.2f);
+                        other.gameObject.GetComponent<MeshRenderer>().enabled = false;
                     }
                 }
             }
@@ -102,6 +102,13 @@ namespace RBSnake
                 {
                     SnakeBodyManager.Instance.PLAYER.IsDead = true;
                 }
+            }
+
+            // collision against checkpoint
+            CheckPoint cp = other.transform.GetComponent<CheckPoint>();
+            if (cp != null)
+            {
+                UnlockCheckpoint(cp);
             }
         }
 
@@ -147,9 +154,9 @@ namespace RBSnake
         {
             if (!CheckPointLoaded)
             {
-                int cpIndex = CheckPointManager.Instance.checkPointLoader.sceneSelection.LastSelectedCheckpoint;
+                int cpIndex = SaveManager.Instance.checkPointLoader.sceneSelection.LastSelectedCheckpoint;
 
-                foreach (CheckPoint p in CheckPointManager.Instance.PointsList)
+                foreach (CheckPoint p in SaveManager.Instance.PointsList)
                 {
                     if (p.Index == cpIndex)
                     {
@@ -223,6 +230,19 @@ namespace RBSnake
             }
 
             control.KeyPresses.RemoveAt(0);
+        }
+
+        void UnlockCheckpoint(CheckPoint cp)
+        {
+            List<int> list = SaveManager.Instance.checkPointLoader.sceneSelection.
+                GetUnlockedCheckpointsList(cp.IslandType);
+
+            if (!list.Contains(cp.Index))
+            {
+                list.Add(cp.Index);
+            }
+
+            SaveManager.Instance.SaveData();
         }
     }
 }
