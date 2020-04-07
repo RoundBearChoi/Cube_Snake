@@ -9,13 +9,59 @@ namespace RBSnake
         public SnakeIslandType selection;
         public SceneSelection sceneSelectionObj;
         public SceneChanger sceneChanger;
+        public IslandSelection islandSelection;
 
         private void Start()
         {
             sceneChanger = FindObjectOfType<SceneChanger>();
+            islandSelection = FindObjectOfType<IslandSelection>();
         }
 
         public void LoadCheckPoint()
+        {
+            if (CheckPointIsUnlocked())
+            {
+                ProcLoad();
+            }
+            else
+            {
+                ShakeLockIcon();
+            }
+        }
+        
+        public void SetDefaultCheckPoint()
+        {
+            List<int> defaultone = SaveManager.Instance.checkPointLoader.sceneSelection.
+                GetUnlockedCheckPoints(SnakeIslandType.ONE);
+
+            if (!defaultone.Contains(0))
+            {
+                defaultone.Add(0);
+                SaveManager.Instance.SaveData();
+                SaveManager.Instance.LoadData();
+            }
+        }
+
+        bool CheckPointIsUnlocked()
+        {
+            SetDefaultCheckPoint();
+
+            List<int> cplist = SaveManager.Instance.checkPointLoader.sceneSelection.
+                GetUnlockedCheckPoints(selection);
+
+            if (cplist.Contains(listener.gameEvent.INDEX))
+            {
+                Debug.Log(selection.ToString() + " " + listener.gameEvent.INDEX.ToString() + " is unlocked");
+                return true;
+            }
+            else
+            {
+                Debug.Log(selection.ToString() + " " + listener.gameEvent.INDEX.ToString() + " is NOT unlocked");
+                return false;
+            }
+        }
+
+        void ProcLoad()
         {
             GameObject uiObj = listener.gameEvent.EVENTOBJ;
 
@@ -43,6 +89,16 @@ namespace RBSnake
 
             SaveManager.Instance.SaveData();
             sceneChanger.ChangeScene();
+        }
+
+        void ShakeLockIcon()
+        {
+            List<Animator> animators = islandSelection.GetLockAnimators(selection);
+
+            if (animators.Count > listener.gameEvent.INDEX)
+            {
+                animators[listener.gameEvent.INDEX].SetBool("ShakeLock", true);
+            }
         }
     }
 }

@@ -18,28 +18,28 @@ namespace RBSnake
         public string IslandTypeFour;
 
         [Header("Unlocked")]
-        public List<int> IslandOneCheckpoints;
-        public List<int> IslandTwoCheckpoints;
-        public List<int> IslandThreeCheckpoints;
-        public List<int> IslandFourCheckpoints;
+        public List<int> IslandOneCheckPoints;
+        public List<int> IslandTwoCheckPoints;
+        public List<int> IslandThreeCheckPoints;
+        public List<int> IslandFourCheckPoints;
 
-        public List<int> GetUnlockedCheckpointsList(SnakeIslandType islandType)
+        public List<int> GetUnlockedCheckPoints(SnakeIslandType islandType)
         {
             if (islandType == SnakeIslandType.ONE)
             {
-                return IslandOneCheckpoints;
+                return IslandOneCheckPoints;
             }
             else if (islandType == SnakeIslandType.TWO)
             {
-                return IslandTwoCheckpoints;
+                return IslandTwoCheckPoints;
             }
             else if (islandType == SnakeIslandType.THREE)
             {
-                return IslandThreeCheckpoints;
+                return IslandThreeCheckPoints;
             }
             else if (islandType == SnakeIslandType.FOUR)
             {
-                return IslandFourCheckpoints;
+                return IslandFourCheckPoints;
             }
 
             return null;

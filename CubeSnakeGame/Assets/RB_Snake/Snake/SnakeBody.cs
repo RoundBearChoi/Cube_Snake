@@ -46,24 +46,34 @@ namespace RBSnake
 
         private void OnTriggerEnter(Collider other)
         {
-            // collision against food
+            CollisionAgainstFood(other);
+            CollisionAgainstSelf(other);
+            CollisionAgainstWater(other);
+            CollisionAgainstTrap(other);
+            CollisionAgainstCheckPoint(other);
+        }
+
+        void CollisionAgainstFood(Collider other)
+        {
             if (other.gameObject.GetComponent<Rat>() != null)
             {
                 SpawnTail();
                 Destroy(other.gameObject);
                 SpawnRatDeathEffects(this.transform.position);
-                
+
                 // camera shake
                 CameraManager.Instance.CAMERA_CONTROL.ShakeCamera();
             }
-                    
-            // collision against self
+        }
+
+        void CollisionAgainstSelf(Collider other)
+        {
             if (this == SnakeBodyManager.Instance.SNAKE_HEAD)
             {
                 if (!SnakeBodyManager.Instance.FirstUpdate)
                 {
                     SnakeBody collidedBody = other.gameObject.GetComponent<SnakeBody>();
-                    
+
                     if (collidedBody != null)
                     {
                         SnakeBodyManager.Instance.PLAYER.IsDead = true;
@@ -73,8 +83,10 @@ namespace RBSnake
                     }
                 }
             }
+        }
 
-            // collision against water
+        void CollisionAgainstWater(Collider other)
+        {
             if (other.transform.parent != null)
             {
                 if (other.transform.parent.gameObject.GetComponent<Water>() != null)
@@ -94,8 +106,10 @@ namespace RBSnake
                     control.KeyPresses.Clear();
                 }
             }
+        }
 
-            // collision against trap
+        void CollisionAgainstTrap(Collider other)
+        {
             if (other.transform.parent != null)
             {
                 if (other.transform.parent.gameObject.GetComponent<Trap>() != null)
@@ -103,8 +117,10 @@ namespace RBSnake
                     SnakeBodyManager.Instance.PLAYER.IsDead = true;
                 }
             }
+        }
 
-            // collision against checkpoint
+        void CollisionAgainstCheckPoint(Collider other)
+        {
             CheckPoint cp = other.transform.GetComponent<CheckPoint>();
             if (cp != null)
             {
@@ -235,7 +251,7 @@ namespace RBSnake
         void UnlockCheckpoint(CheckPoint cp)
         {
             List<int> list = SaveManager.Instance.checkPointLoader.sceneSelection.
-                GetUnlockedCheckpointsList(cp.IslandType);
+                GetUnlockedCheckPoints(cp.IslandType);
 
             if (!list.Contains(cp.Index))
             {
