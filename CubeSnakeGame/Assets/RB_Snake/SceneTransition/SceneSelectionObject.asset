@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: SceneSelectionObject
   m_EditorClassIdentifier: 
   LastSelectedScene: 1
-  LastSelectedCheckpoint: 1
+  LastSelectedCheckpoint: 2
   IslandTypeOne: Snake_TestScene
   IslandTypeTwo: Snake_TestScene_2
   IslandTypeThree: Snake_TestScene_3
   IslandTypeFour: Snake_TestScene_4
-  IslandOneCheckPoints: 
+  IslandOneCheckPoints: 00000000
   IslandTwoCheckPoints: 
   IslandThreeCheckPoints: 
   IslandFourCheckPoints: 
