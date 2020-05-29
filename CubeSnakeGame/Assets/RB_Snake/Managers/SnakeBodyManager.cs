@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace RBSnake
@@ -8,10 +9,11 @@ namespace RBSnake
     {
         public List<SnakeBody> Bodies = new List<SnakeBody>();
         public float BigUpdateTime;
-        public float BigUpdateInterval = 0.165f;
         public bool FirstUpdate;
 
-        private SnakePlayer player;
+        SnakePlayer player;
+        SnakeTime snakeTime;
+        float BigUpdateInterval = 0.165f;
 
         public SnakePlayer PLAYER
         {
@@ -28,6 +30,14 @@ namespace RBSnake
         private void Awake()
         {
             FirstUpdate = true;
+
+            SnakeTime[] arr = Resources.FindObjectsOfTypeAll<SnakeTime>();
+
+            if (arr.Length > 0)
+            {
+                SnakeTime t = arr[0];
+                snakeTime = t;
+            }
         }
 
         public SnakeBody SNAKE_HEAD
@@ -66,6 +76,11 @@ namespace RBSnake
 
         private void Update()
         {
+            if (BigUpdateInterval != snakeTime.sTime)
+            {
+                BigUpdateInterval = snakeTime.sTime;
+            }
+
             BigUpdateTime += Time.deltaTime;
 
             if (BigUpdateTime >= BigUpdateInterval)
