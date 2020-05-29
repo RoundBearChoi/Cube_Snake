@@ -121,10 +121,14 @@ namespace RBSnake
 
         void CollisionAgainstCheckPoint(Collider other)
         {
-            CheckPoint cp = other.transform.GetComponent<CheckPoint>();
-            if (cp != null)
+            // only if head
+            if (Front == null)
             {
-                UnlockCheckpoint(cp);
+                CheckPoint cp = other.transform.GetComponent<CheckPoint>();
+                if (cp != null)
+                {
+                    UnlockCheckpoint(cp);
+                }
             }
         }
 
