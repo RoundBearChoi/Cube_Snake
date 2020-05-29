@@ -216,6 +216,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsDead: 0
   IsDrowning: 0
+  snakeTime: {fileID: 11400000, guid: cac1a7029493b1a47a9296d01108b41d, type: 2}
+  Markers: []
 --- !u!1001 &8433091152285295601
 PrefabInstance:
   m_ObjectHideFlags: 0

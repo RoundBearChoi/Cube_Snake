@@ -11,7 +11,7 @@ namespace RBSnake
         {
             foreach (Transform child in transform)
             {
-                Grass grass = child.GetComponent<Grass>();
+                Ground grass = child.GetComponent<Ground>();
                 Water water = child.GetComponent<Water>();
 
                 if (grass != null || water != null)

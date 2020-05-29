@@ -9,8 +9,9 @@ namespace RBSnake
     {
         public bool IsDead;
         public bool IsDrowning;
+        public SnakeTime snakeTime;
 
-        [SerializeField] List<GameObject> Markers = new List<GameObject>();
+        [SerializeField] List<Marker> Markers = new List<Marker>();
         Control control;
 
         private void Awake()
@@ -86,11 +87,21 @@ namespace RBSnake
             {
                 for (int i = 0; i < 3; i++)
                 {
-                    GameObject m = Instantiate(Resources.Load("Marker")) as GameObject;
-                    m.transform.position = Vector3.zero;
-                    m.transform.rotation = Quaternion.identity;
+                    GameObject obj = Instantiate(Resources.Load("Marker")) as GameObject;
+                    obj.transform.position = Vector3.zero;
+                    obj.transform.rotation = Quaternion.identity;
+                    Marker m = obj.GetComponent<Marker>();
+                    m.NextGround = null;
                     Markers.Add(m);
                 }
+            }
+        }
+
+        public void ClearMarkers()
+        {
+            foreach(Marker marker in Markers)
+            {
+                marker.NextGround = null;
             }
         }
     }

@@ -246,6 +246,7 @@ namespace RBSnake
             }
 
             control.KeyPresses.RemoveAt(0);
+            SnakeBodyManager.Instance.PLAYER.ClearMarkers();
         }
 
         void UnlockCheckpoint(CheckPoint cp)

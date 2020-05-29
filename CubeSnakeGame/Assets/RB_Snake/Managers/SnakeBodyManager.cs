@@ -12,7 +12,6 @@ namespace RBSnake
         public bool FirstUpdate;
 
         SnakePlayer player;
-        SnakeTime snakeTime;
         float BigUpdateInterval = 0.165f;
 
         public SnakePlayer PLAYER
@@ -30,14 +29,6 @@ namespace RBSnake
         private void Awake()
         {
             FirstUpdate = true;
-
-            SnakeTime[] arr = Resources.FindObjectsOfTypeAll<SnakeTime>();
-
-            if (arr.Length > 0)
-            {
-                SnakeTime t = arr[0];
-                snakeTime = t;
-            }
         }
 
         public SnakeBody SNAKE_HEAD
@@ -76,18 +67,21 @@ namespace RBSnake
 
         private void Update()
         {
-            if (BigUpdateInterval != snakeTime.sTime)
+            if (PLAYER.snakeTime != null)
             {
-                BigUpdateInterval = snakeTime.sTime;
-            }
+                if (BigUpdateInterval != PLAYER.snakeTime.sTime)
+                {
+                    BigUpdateInterval = PLAYER.snakeTime.sTime;
+                }
 
-            BigUpdateTime += Time.deltaTime;
+                BigUpdateTime += Time.deltaTime;
 
-            if (BigUpdateTime >= BigUpdateInterval)
-            {
-                FirstUpdate = false;
-                UpdateBodies();
-                BigUpdateTime = 0f;
+                if (BigUpdateTime >= BigUpdateInterval)
+                {
+                    FirstUpdate = false;
+                    UpdateBodies();
+                    BigUpdateTime = 0f;
+                }
             }
         }
         

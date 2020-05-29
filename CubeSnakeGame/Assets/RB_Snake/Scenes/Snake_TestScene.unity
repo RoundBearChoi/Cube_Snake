@@ -6710,7 +6710,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 627362457}
-  m_LocalRotation: {x: 0.5038529, y: 0.02139415, z: -0.012484293, w: 0.86343426}
+  m_LocalRotation: {x: 0.5038529, y: 0.021394202, z: -0.012484325, w: 0.86343426}
   m_LocalPosition: {x: -0.6, y: 21.44, z: -12.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -8535,11 +8535,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrassCube (90)
       objectReference: {fileID: 0}
-    - target: {fileID: 2353687798854879278, guid: 00f7fa2fbb480b14da4b6a30744c5457,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     - target: {fileID: 3507757969457078977, guid: 00f7fa2fbb480b14da4b6a30744c5457,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8780,7 +8775,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 824014018}
-  m_LocalRotation: {x: 0.5038529, y: 0.02139415, z: -0.012484293, w: 0.86343426}
+  m_LocalRotation: {x: 0.5038529, y: 0.021394202, z: -0.012484325, w: 0.86343426}
   m_LocalPosition: {x: -5.632578, y: 19.512102, z: -13.888585}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -14135,7 +14130,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1239722821}
-  m_LocalRotation: {x: 0.5038529, y: 0.021394204, z: -0.012484325, w: 0.86343426}
+  m_LocalRotation: {x: 0.5038529, y: 0.021394202, z: -0.012484324, w: 0.86343426}
   m_LocalPosition: {x: -5.632578, y: 19.512102, z: -13.888585}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

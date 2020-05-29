@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RBSnake
 {
-    public class Grass : MonoBehaviour
+    public class Ground : MonoBehaviour
     {
 
     }
