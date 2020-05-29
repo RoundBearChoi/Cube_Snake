@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87f719b6eb6313a48a444a0eceb54ab0, type: 3}
   m_Name: SnakeTime
   m_EditorClassIdentifier: 
-  sTime: 0.165
+  sTime: 1

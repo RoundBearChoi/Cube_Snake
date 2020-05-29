@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.UI;
 
 namespace RBSnake
 {
@@ -48,21 +49,35 @@ namespace RBSnake
 
                 if (key == KeyCode.LeftArrow)
                 {
-
+                    UpdateMarkers(-Vector3.right);
                 }
                 else if (key == KeyCode.RightArrow)
                 {
-
+                    UpdateMarkers(Vector3.right);
                 }
                 else if (key == KeyCode.UpArrow)
                 {
-
+                    UpdateMarkers(Vector3.forward);
                 }
                 else if (key == KeyCode.DownArrow)
                 {
-
+                    UpdateMarkers(-Vector3.forward);
                 }
             }
+            else
+            {
+                UpdateMarkers(this.transform.forward);
+            }
+        }
+
+        void UpdateMarkers(Vector3 dir)
+        {
+            Markers[0].transform.position = this.transform.position + (1f * dir);
+            Markers[1].transform.position = this.transform.position + (1f * dir);
+            Markers[2].transform.position = this.transform.position + (1f * dir);
+
+            Markers[1].transform.position += 1f * Vector3.up;
+            Markers[2].transform.position -= 1f * Vector3.up;
         }
 
         void InstantiateMarkers()
@@ -72,9 +87,8 @@ namespace RBSnake
                 for (int i = 0; i < 3; i++)
                 {
                     GameObject m = Instantiate(Resources.Load("Marker")) as GameObject;
-                    m.transform.parent = this.transform;
-                    m.transform.localPosition = Vector3.zero;
-                    m.transform.localRotation = Quaternion.identity;
+                    m.transform.position = Vector3.zero;
+                    m.transform.rotation = Quaternion.identity;
                     Markers.Add(m);
                 }
             }
