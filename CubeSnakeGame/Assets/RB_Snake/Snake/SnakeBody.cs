@@ -206,24 +206,24 @@ namespace RBSnake
                 {
                     //move body (follow front)
                     this.transform.position = Front.transform.position;
+                    this.transform.rotation = Front.transform.rotation;
                 }
             }
             else
             {
                 if (control.KeyPresses.Count != 0)
                 {
-                    //move head (key press)
-                    MoveDir(control.KeyPresses[0]);
+                    MoveHead(control.KeyPresses[0]);
                 }
                 else
                 {
                     //continue moving the head (no key press)
-                    this.transform.position += this.transform.forward;
+                    MoveHead();
                 }
             }
         }
 
-        public void MoveDir(KeyCode key)
+        public void MoveHead(KeyCode key)
         {
             if (key == KeyCode.LeftArrow)
             {
@@ -251,6 +251,11 @@ namespace RBSnake
 
             control.KeyPresses.RemoveAt(0);
             SnakeBodyManager.Instance.PLAYER.ClearMarkers();
+        }
+
+        public void MoveHead()
+        {
+            this.transform.position += this.transform.forward;
         }
 
         void UnlockCheckpoint(CheckPoint cp)
