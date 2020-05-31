@@ -225,11 +225,11 @@ namespace RBSnake
 
             if (control.KeyPresses.Count > 0)
             {
-                SnakeBodyManager.Instance.DebugNextGround(control.KeyPresses[0], ref nextGround);
+                nextGround = SnakeBodyManager.Instance.GetNextGround(control.KeyPresses[0]);
             }
             else
             {
-                SnakeBodyManager.Instance.DebugNextGround(control.LastPress, ref nextGround);
+                nextGround = SnakeBodyManager.Instance.GetNextGround(control.LastPress);
             }
 
             if (nextGround != null)

@@ -39,7 +39,7 @@ namespace RBSnake
             }
         }
 
-        public Ground GetNextGround(KeyCode key)
+        public Ground DetectNextGround(KeyCode key)
         {
             ClearMarkers();
 

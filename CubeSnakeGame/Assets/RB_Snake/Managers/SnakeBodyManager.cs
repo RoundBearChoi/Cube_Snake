@@ -85,9 +85,9 @@ namespace RBSnake
             }
         }
         
-        public void DebugNextGround(KeyCode key, ref Ground nextGround)
+        public Ground GetNextGround(KeyCode key)
         {
-            nextGround = PLAYER.GetNextGround(key);
+            Ground nextGround = PLAYER.DetectNextGround(key);
 
             if (nextGround != null)
             {
@@ -101,6 +101,8 @@ namespace RBSnake
             {
                 Debug.Log("no next ground!");
             }
+
+            return nextGround;
         }
 
         public void UpdateSnake()

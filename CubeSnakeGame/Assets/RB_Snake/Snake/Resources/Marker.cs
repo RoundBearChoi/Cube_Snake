@@ -10,7 +10,7 @@ namespace RBSnake
 
         public void DetectGroundCollision()
         {
-            Collider[] arr = Physics.OverlapSphere(this.transform.position, 0.5f);
+            Collider[] arr = Physics.OverlapSphere(this.transform.position, 0.1f);
 
             foreach(Collider c in arr)
             {
