@@ -10,6 +10,7 @@ namespace RBSnake
         public bool IsDead;
         public bool IsDrowning;
         public SnakeTime snakeTime;
+        public Ground CurrentGround;
 
         [SerializeField] List<Marker> Markers = new List<Marker>();
 
@@ -62,9 +63,20 @@ namespace RBSnake
                 dir = -Vector3.forward;
             }
 
-            Markers[0].transform.position = this.transform.position + (1f * dir);
-            Markers[1].transform.position = this.transform.position + (1f * dir);
-            Markers[2].transform.position = this.transform.position + (1f * dir);
+            Vector3 pos;
+
+            if (SnakeBodyManager.Instance.PLAYER.CurrentGround == null)
+            {
+                pos = this.transform.position;
+            }
+            else
+            {
+                pos = SnakeBodyManager.Instance.PLAYER.CurrentGround.transform.position;
+            }
+
+            Markers[0].transform.position = pos + (1f * dir);
+            Markers[1].transform.position = pos + (1f * dir);
+            Markers[2].transform.position = pos + (1f * dir);
 
             Markers[1].transform.position += 1f * Vector3.up;
             Markers[2].transform.position -= 1f * Vector3.up;

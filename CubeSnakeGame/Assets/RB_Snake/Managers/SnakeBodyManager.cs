@@ -91,7 +91,7 @@ namespace RBSnake
 
             if (nextGround != null)
             {
-                Debug.Log("next ground: " + nextGround.gameObject.name);
+                //Debug.Log("next ground: " + nextGround.gameObject.name);
                 Debug.DrawLine(Bodies[Bodies.Count - 1].transform.position + Vector3.up,
                     nextGround.transform.position + (Vector3.up * 2f),
                     Color.red,
@@ -99,9 +99,10 @@ namespace RBSnake
             }
             else
             {
-                Debug.Log("no next ground!");
+                //Debug.Log("no next ground!");
             }
 
+            PLAYER.CurrentGround = nextGround;
             return nextGround;
         }
 
