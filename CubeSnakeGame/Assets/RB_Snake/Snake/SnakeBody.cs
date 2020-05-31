@@ -198,72 +198,83 @@ namespace RBSnake
 
             if (Front != null)
             {
-                if (Front.transform.position == this.transform.position)
-                {
-                    return;
-                }
-                else
-                {
-                    //move body (follow front)
-                    this.transform.position = Front.transform.position;
-                    this.transform.rotation = Front.transform.rotation;
-                }
+                UpdateBody();
             }
             else
             {
-                if (control.KeyPresses.Count > 0)
-                {
-                    SnakeBodyManager.Instance.DebugNextGround(control.KeyPresses[0]);
-                }
-                else
-                {
-                    SnakeBodyManager.Instance.DebugNextGround(control.LastPress);
-                }
+                UpdateHead();
+            }
+        }
 
+        void UpdateBody()
+        {
+            if (Front.transform.position == this.transform.position)
+            {
+                return;
+            }
+            else
+            {
+                this.transform.position = Front.transform.position;
+                this.transform.rotation = Front.transform.rotation;
+            }
+        }
+
+        void UpdateHead()
+        {
+            Ground nextGround = null;
+
+            if (control.KeyPresses.Count > 0)
+            {
+                SnakeBodyManager.Instance.DebugNextGround(control.KeyPresses[0], ref nextGround);
+            }
+            else
+            {
+                SnakeBodyManager.Instance.DebugNextGround(control.LastPress, ref nextGround);
+            }
+
+            if (nextGround != null)
+            {
                 if (control.KeyPresses.Count != 0)
                 {
-                    MoveHead(control.KeyPresses[0]);
+                    MoveHead(control.KeyPresses[0], nextGround);
                 }
                 else
                 {
                     //continue moving the head (no key press)
-                    MoveHead();
+                    MoveHead(nextGround);
                 }
             }
         }
 
-        public void MoveHead(KeyCode key)
+        public void MoveHead(KeyCode key, Ground nextGround)
         {
             if (key == KeyCode.LeftArrow)
             {
-                this.transform.position -= Vector3.right;
-                this.transform.forward = -Vector3.right;
+                this.transform.LookAt(this.transform.position - Vector3.right, Vector3.up);
             }
 
             if (key == KeyCode.RightArrow)
             {
-                this.transform.position += Vector3.right;
-                this.transform.forward = Vector3.right;
+                this.transform.LookAt(this.transform.position + Vector3.right, Vector3.up);
             }
 
             if (key == KeyCode.UpArrow)
             {
-                this.transform.position += Vector3.forward;
-                this.transform.forward = Vector3.forward;
+                this.transform.LookAt(this.transform.position + Vector3.forward, Vector3.up);
             }
 
             if (key == KeyCode.DownArrow)
             {
-                this.transform.position -= Vector3.forward;
-                this.transform.forward = -Vector3.forward;
+                this.transform.LookAt(this.transform.position - Vector3.forward, Vector3.up);
             }
 
+            this.transform.position = nextGround.transform.position + Vector3.up;
             control.KeyPresses.RemoveAt(0);
         }
 
-        public void MoveHead()
+        public void MoveHead(Ground nextGround)
         {
-            this.transform.position += this.transform.forward;
+            this.transform.position = nextGround.transform.position + Vector3.up;
         }
 
         void UnlockCheckpoint(CheckPoint cp)
