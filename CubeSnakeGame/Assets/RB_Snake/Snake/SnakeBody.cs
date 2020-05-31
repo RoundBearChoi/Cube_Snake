@@ -189,7 +189,7 @@ namespace RBSnake
             }
         }
 
-        public void UpdateBody()
+        public void UpdateSnakeCube()
         {
             if (control.LastPress == KeyCode.None)
             {
@@ -211,6 +211,15 @@ namespace RBSnake
             }
             else
             {
+                if (control.KeyPresses.Count > 0)
+                {
+                    SnakeBodyManager.Instance.DebugNextGround(control.KeyPresses[0]);
+                }
+                else
+                {
+                    SnakeBodyManager.Instance.DebugNextGround(control.LastPress);
+                }
+
                 if (control.KeyPresses.Count != 0)
                 {
                     MoveHead(control.KeyPresses[0]);
@@ -250,7 +259,6 @@ namespace RBSnake
             }
 
             control.KeyPresses.RemoveAt(0);
-            SnakeBodyManager.Instance.PLAYER.ClearMarkers();
         }
 
         public void MoveHead()

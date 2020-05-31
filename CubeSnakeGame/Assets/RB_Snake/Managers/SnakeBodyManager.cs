@@ -65,7 +65,7 @@ namespace RBSnake
             }
         }
 
-        private void Update()
+        private void LateUpdate()
         {
             if (PLAYER.snakeTime != null)
             {
@@ -79,13 +79,31 @@ namespace RBSnake
                 if (BigUpdateTime >= BigUpdateInterval)
                 {
                     FirstUpdate = false;
-                    UpdateBodies();
+                    UpdateSnake();
                     BigUpdateTime = 0f;
                 }
             }
         }
         
-        public void UpdateBodies()
+        public void DebugNextGround(KeyCode key)
+        {
+            Ground nextGround = PLAYER.GetNextGround(key);
+
+            if (nextGround != null)
+            {
+                Debug.Log("next ground: " + nextGround.gameObject.name);
+                Debug.DrawLine(Bodies[Bodies.Count - 1].transform.position + Vector3.up,
+                    nextGround.transform.position + (Vector3.up * 2f),
+                    Color.red,
+                    600f);
+            }
+            else
+            {
+                Debug.Log("no next ground!");
+            }
+        }
+
+        public void UpdateSnake()
         {
             if (!PLAYER.IsDead)
             {
@@ -93,7 +111,7 @@ namespace RBSnake
                 {
                     if (Bodies[i].CheckPointLoaded)
                     {
-                        Bodies[i].UpdateBody();
+                        Bodies[i].UpdateSnakeCube();
                     }
                 }
 
@@ -104,7 +122,7 @@ namespace RBSnake
             {
                 if (PLAYER.IsDrowning)
                 {
-                    foreach(SnakeBody body in Bodies)
+                    foreach (SnakeBody body in Bodies)
                     {
                         //Debug.Log("drowning body: " + body.gameObject.name);
                         if (body.Front != null)

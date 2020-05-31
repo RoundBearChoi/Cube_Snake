@@ -8,13 +8,19 @@ namespace RBSnake
     {
         public Ground NextGround;
 
-        private void OnTriggerStay(Collider other)
+        public void DetectGroundCollision()
         {
-            Ground g = other.gameObject.GetComponent<Ground>();
-            
-            if (g != null)
+            Collider[] arr = Physics.OverlapSphere(this.transform.position, 0.5f);
+
+            foreach(Collider c in arr)
             {
-                NextGround = g;
+                Ground g = c.gameObject.GetComponent<Ground>();
+
+                if (g != null)
+                {
+                    NextGround = g;
+                    break;
+                }
             }
         }
     }

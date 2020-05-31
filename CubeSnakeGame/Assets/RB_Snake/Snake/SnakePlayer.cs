@@ -12,12 +12,10 @@ namespace RBSnake
         public SnakeTime snakeTime;
 
         [SerializeField] List<Marker> Markers = new List<Marker>();
-        Control control;
 
         private void Awake()
         {
             IsDead = false;
-            control = FindObjectOfType<Control>();
             Markers.Clear();
         }
 
@@ -25,7 +23,6 @@ namespace RBSnake
         {
             ToggleDeathMenu();
             InstantiateMarkers();
-            CheckNextBlock();
         }
 
         void ToggleDeathMenu()
@@ -42,43 +39,47 @@ namespace RBSnake
             }
         }
 
-        void CheckNextBlock()
+        public Ground GetNextGround(KeyCode key)
         {
-            if (control.KeyPresses.Count > 0)
-            {
-                KeyCode key = control.KeyPresses[0];
+            ClearMarkers();
 
-                if (key == KeyCode.LeftArrow)
-                {
-                    UpdateMarkers(-Vector3.right);
-                }
-                else if (key == KeyCode.RightArrow)
-                {
-                    UpdateMarkers(Vector3.right);
-                }
-                else if (key == KeyCode.UpArrow)
-                {
-                    UpdateMarkers(Vector3.forward);
-                }
-                else if (key == KeyCode.DownArrow)
-                {
-                    UpdateMarkers(-Vector3.forward);
-                }
-            }
-            else
-            {
-                UpdateMarkers(this.transform.forward);
-            }
-        }
+            Vector3 dir = Vector3.zero;
 
-        void UpdateMarkers(Vector3 dir)
-        {
+            if (key == KeyCode.LeftArrow)
+            {
+                dir  = -Vector3.right;
+            }
+            else if (key == KeyCode.RightArrow)
+            {
+                dir = Vector3.right;
+            }
+            else if (key == KeyCode.UpArrow)
+            {
+                dir = Vector3.forward;
+            }
+            else if (key == KeyCode.DownArrow)
+            {
+                dir = -Vector3.forward;
+            }
+
             Markers[0].transform.position = this.transform.position + (1f * dir);
             Markers[1].transform.position = this.transform.position + (1f * dir);
             Markers[2].transform.position = this.transform.position + (1f * dir);
 
             Markers[1].transform.position += 1f * Vector3.up;
             Markers[2].transform.position -= 1f * Vector3.up;
+
+            foreach (Marker marker in Markers)
+            {
+                marker.DetectGroundCollision();
+
+                if (marker.NextGround != null)
+                {
+                    return marker.NextGround;
+                }
+            }
+
+            return null;
         }
 
         void InstantiateMarkers()
@@ -97,7 +98,7 @@ namespace RBSnake
             }
         }
 
-        public void ClearMarkers()
+        void ClearMarkers()
         {
             foreach(Marker marker in Markers)
             {
