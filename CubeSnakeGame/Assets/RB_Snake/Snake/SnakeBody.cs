@@ -270,6 +270,19 @@ namespace RBSnake
 
             this.transform.position = nextGround.transform.position + Vector3.up;
             control.KeyPresses.RemoveAt(0);
+
+            // for accuracy
+
+            int posX = (int)this.transform.position.x;
+            int posY = (int)this.transform.position.y;
+            int posZ = (int)this.transform.position.z;
+
+            int rotX = (int)this.transform.rotation.eulerAngles.x;
+            int rotY = (int)this.transform.rotation.eulerAngles.y;
+            int rotZ = (int)this.transform.rotation.eulerAngles.z;
+
+            this.transform.position = new Vector3(posX, posY, posZ);
+            this.transform.rotation = Quaternion.Euler(new Vector3(rotX, rotY, rotZ));
         }
 
         public void MoveHead(Ground nextGround)
