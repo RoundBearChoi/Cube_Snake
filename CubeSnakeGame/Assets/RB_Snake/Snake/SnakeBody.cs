@@ -55,7 +55,7 @@ namespace RBSnake
 
         void CollisionAgainstFood(Collider other)
         {
-            if (other.gameObject.GetComponent<Rat>() != null)
+            if (other.gameObject.GetComponent<Cat>() != null)
             {
                 SpawnTail();
                 Destroy(other.gameObject);

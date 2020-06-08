@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RBSnake
 {
-    public class Rat : MonoBehaviour
+    public class Cat : MonoBehaviour
     {
 
     }
