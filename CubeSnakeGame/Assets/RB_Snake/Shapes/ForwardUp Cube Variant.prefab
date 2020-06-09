@@ -70,8 +70,13 @@ PrefabInstance:
     - target: {fileID: 5314737926079592366, guid: 0271319611e7e994c8e3a91634d3e5a5,
         type: 3}
       propertyPath: m_Name
-      value: ForwardUp Cube
+      value: ForwardUp Cube Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5726154515550749636, guid: 0271319611e7e994c8e3a91634d3e5a5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5937e9e11efffe44d8e1bf17352fcb3f, type: 2}
     - target: {fileID: 8385756971016722010, guid: 0271319611e7e994c8e3a91634d3e5a5,
         type: 3}
       propertyPath: m_LocalRotation.x
