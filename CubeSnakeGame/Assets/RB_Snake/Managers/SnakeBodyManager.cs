@@ -131,6 +131,7 @@ namespace RBSnake
                         if (body.Front != null)
                         {
                             body.transform.position = body.Front.transform.position;
+                            body.transform.rotation = body.Front.transform.rotation;
                         }
                         else
                         {
