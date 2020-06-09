@@ -164,9 +164,12 @@ namespace RBSnake
 
         public void ScaleDown()
         {
-            if (this.transform.localScale.x >= 0.5f)
+            if (Front.Front != null)
             {
-                this.transform.localScale = Front.transform.localScale * 0.925f;
+                if (this.transform.localScale.x >= 0.5f)
+                {
+                    this.transform.localScale = Front.transform.localScale * 0.925f;
+                }
             }
         }
 
