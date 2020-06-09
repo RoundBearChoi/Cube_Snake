@@ -115,6 +115,8 @@ namespace RBSnake
                 if (other.transform.parent.gameObject.GetComponent<Trap>() != null)
                 {
                     SnakeBodyManager.Instance.PLAYER.IsDead = true;
+                    SpawnSnakeDeathEffects(this.transform.position);
+                    CameraManager.Instance.CAMERA_CONTROL.ZoomInAndOut(0.15f, 0.2f);
                 }
             }
         }
