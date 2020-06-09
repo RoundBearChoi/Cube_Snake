@@ -14,5 +14,11 @@ namespace RBSnake
     public class Ground : MonoBehaviour
     {
         public MoveDirection moveDir;
+        public BoxCollider boxCollider;
+
+        public Vector3 GetPlayerPosition()
+        {
+            return boxCollider.transform.position + boxCollider.center + (Vector3.up * 1f); 
+        }
     }
 }

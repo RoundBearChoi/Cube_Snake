@@ -271,7 +271,7 @@ namespace RBSnake
                 this.transform.LookAt(this.transform.position - Vector3.forward, Vector3.up);
             }
 
-            this.transform.position = nextGround.transform.position + Vector3.up;
+            this.transform.position = nextGround.GetPlayerPosition();
             control.KeyPresses.RemoveAt(0);
 
             // for accuracy
@@ -290,7 +290,7 @@ namespace RBSnake
 
         public void MoveHead(Ground nextGround)
         {
-            this.transform.position = nextGround.transform.position + Vector3.up;
+            this.transform.position = nextGround.GetPlayerPosition();
         }
 
         void UnlockCheckpoint(CheckPoint cp)

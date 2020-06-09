@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDir: 1
+  boxCollider: {fileID: 7886571875194710535}
 --- !u!65 &7886571875194710535
 BoxCollider:
   m_ObjectHideFlags: 0

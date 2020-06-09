@@ -93,7 +93,7 @@ namespace RBSnake
             {
                 //Debug.Log("next ground: " + nextGround.gameObject.name);
                 Debug.DrawLine(Bodies[Bodies.Count - 1].transform.position + Vector3.up,
-                    nextGround.transform.position + (Vector3.up * 2f),
+                    nextGround.GetPlayerPosition() + Vector3.up,
                     Color.red,
                     600f);
             }
