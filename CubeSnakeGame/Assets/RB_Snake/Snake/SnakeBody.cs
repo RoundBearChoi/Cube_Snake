@@ -12,6 +12,9 @@ namespace RBSnake
         [Header("Parts")]
         public SnakeBody Front;
         public SnakeBody Back;
+
+        [Header("Components")]
+        public Renderer Renderer;
         
         private Control control;
 
@@ -72,14 +75,14 @@ namespace RBSnake
             {
                 if (!SnakeBodyManager.Instance.FirstUpdate)
                 {
-                    SnakeBody collidedBody = other.gameObject.GetComponent<SnakeBody>();
+                    SnakeBody collidedBody = SnakeBodyManager.Instance.GetBody(other.gameObject);
 
                     if (collidedBody != null)
                     {
                         SnakeBodyManager.Instance.PLAYER.IsDead = true;
                         SpawnSnakeDeathEffects(this.transform.position);
                         CameraManager.Instance.CAMERA_CONTROL.ZoomInAndOut(0.15f, 0.2f);
-                        other.gameObject.GetComponent<MeshRenderer>().enabled = false;
+                        collidedBody.Renderer.enabled = false;
                     }
                 }
             }
@@ -117,6 +120,11 @@ namespace RBSnake
                     SnakeBodyManager.Instance.PLAYER.IsDead = true;
                     SpawnSnakeDeathEffects(this.transform.position);
                     CameraManager.Instance.CAMERA_CONTROL.ZoomInAndOut(0.15f, 0.2f);
+
+                    if (Front == null)
+                    {
+                        Renderer.enabled = false;
+                    }
                 }
             }
         }

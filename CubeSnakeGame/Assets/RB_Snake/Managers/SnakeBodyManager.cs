@@ -152,5 +152,18 @@ namespace RBSnake
                 }
             }
         }
+
+        public SnakeBody GetBody(GameObject obj)
+        {
+            foreach(SnakeBody b in Bodies)
+            {
+                if (b.gameObject.Equals(obj))
+                {
+                    return b;
+                }
+            }
+
+            return null;
+        }
     }
 }
